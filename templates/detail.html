@@ -1,0 +1,179 @@
+{% load static %}
+<!doctype html>
+<html class="no-js" lang="zxx" dir="rtl">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Plumer - قالب HTML - خدمات لوله بازکنی و تاسیسات </title>
+    <meta name="author" content="Plumer">
+    <meta name="description" content="Plumer - Plumbing & Repair HTML Template">
+    <meta name="keywords" content="Plumer - Plumbing & Repair HTML Template">
+    <meta name="robots" content="INDEX,FOLLOW">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+
+    <!--==============================
+	  Google Fonts
+	============================== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700&display=swap"
+        rel="stylesheet">
+
+    <!--==============================
+	    All CSS File
+	============================== -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <!-- Fontawesome Icon -->
+    <link rel="stylesheet" href="{% static 'css/fontawesome.min.css' %}">
+    <!-- Magnific Popup -->
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.min.css' %}">
+    <!-- Slick Slider -->
+    <link rel="stylesheet" href="{% static 'css/slick.min.css' %}">
+    <!-- Theme Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+
+<body>
+
+
+    <!--==============================
+     Preloader
+  ==============================-->
+    <div class="preloader ">
+        <button class="themeholy-btn style3 preloaderCls">لغو پیش بارگذاری </button>
+        <div class="preloader-inner">
+            <span class="loader"></span>
+        </div>
+    </div>
+
+    <!--==============================
+    Breadcumb
+============================== -->
+    <div class="breadcumb-wrapper " data-bg-src="{{ header.image.url }}">
+        <div class="container">
+            <div class="breadcumb-content">
+                <h1 class="breadcumb-title">{{ header.title }}</h1>
+                <ul class="breadcumb-menu">
+                    <li><a href="{% url 'blog:index' %}">خانه</a></li>
+                    <li>{{ header.title }}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--==============================
+        Blog Area
+    ==============================-->
+    <section class="themeholy-blog-wrapper blog-details space-top space-extra-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-xxl-8 col-lg-7">
+                    <div class="themeholy-blog blog-single">
+                        <div class="blog-img">
+                            <img src="{{ article.image.url }}" alt="Blog Image">
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <a class="author" href="{% url 'blog:index' %}"><i class="fas fa-user"></i>توسط {{ article.author }}</a>
+                                <a href="{% url 'blog:index' %}"><i class="fas fa-calendar-days"></i>{{ article.tag }}</a>
+                            </div>
+                            <h2 class="blog-title">{{ article.title }}</h2>
+                            <p>{{ article.description }}</p>
+
+                           
+                        </div>
+                       
+                    </div>
+                </div>
+                <div class="col-xxl-4 col-lg-5">
+                    <aside class="sidebar-area">
+
+                        <div class="widget ">
+                            <h3 class="widget_title">پست های اخیر</h3>
+                            <div class="recent-post-wrap">
+                                {% for cart_article in cart_article %}
+                                <div class="recent-post">
+                                    <div class="media-img">
+                                        <a href="blog-details.html"><img src="{{ cart_article.image.url }}"
+                                                alt="Blog Image"></a>
+                                    </div>
+                                    <div class="media-body">
+                                        <h4 class="post-title"><a class="text-inherit" href="{% url 'blog:article_list' %}">{{ cart_article.description }}</a></h4>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="widget ">
+                            <h3 class="widget_title">پست گالری</h3>
+                            <div class="sidebar-gallery">
+                                {% for image_article in image_article %}
+                                <div class="gallery-thumb">
+                                    <img src="{{ image_article.image.url }}" alt="Gallery Image">
+                                    <a href="{{ image_article.image.url }}" class="gallery-btn popup-image"><i
+                                            class="fab fa-instagram"></i></a>
+                                </div>
+                                {% endfor %}
+                                
+                            </div>
+                        </div>
+                        <div class="widget widget_tag_cloud  ">
+                            <h3 class="widget_title">برچسب های محبوب</h3>
+                            <div class="tagcloud">
+                                {% for poster_article in poster_article %}
+                                <a href="{% url 'blog:index' %}">{{ poster_article.title }}</a>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!--********************************
+        Code End  Here 
+******************************** -->
+
+    <!-- Scroll To Top -->
+    <div class="scroll-top">
+        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"
+                style="transition: stroke-dashoffset 10ms linear 0s; stroke-dasharray: 307.919, 307.919; stroke-dashoffset: 307.919;">
+            </path>
+        </svg>
+    </div>
+
+    <!--==============================
+All Js File
+============================== -->
+    <!-- Jquery -->
+    <script src="{% static 'js/vendor/jquery-3.6.0.min.js' %}"></script>
+    <!-- Slick Slider -->
+    <script src="{% static 'js/slick.min.js' %}"></script>
+    <!-- Bootstrap -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <!-- Magnific Popup -->
+    <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+    <!-- Counter Up -->
+    <script src="{% static 'js/jquery.counterup.min.js' %}"></script>
+    <!-- Range Slider -->
+    <script src="{% static 'js/jquery-ui.min.js' %}"></script>
+    <!-- Isotope Filter -->
+    <script src="{% static 'js/imagesloaded.pkgd.min.js' %}"></script>
+    <script src="{% static 'js/isotope.pkgd.min.js' %}"></script>
+
+    <!-- Main Js File -->
+    <script src="{% static 'js/main.js' %}"></script>
+
+</body>
+
+</html>
